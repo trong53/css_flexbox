@@ -1,0 +1,155 @@
+body{
+    padding: 2rem;  /*De lui vao ko dinh man hinh border, de nhin, ko quan trong*/
+}
+.cards{
+    display: flex;
+    align-items: stretch;  /*defaut lam cac card co width nhu nhau, pas important*/
+    margin-left: -1 * var(--spacing);  /* -30px */
+    --spacing : 30px;
+    --column : 4;
+    flex-wrap: wrap;
+}
+/*.card img {background-size: contain;}*/
+.card{
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: rgba(41, 41, 43, 0.2) 0px 7px 30px 0px;  /*tao bong nenn cho box card */
+    width: calc(100% / var(--column) - var(--spacing));   /*calc(25% - 30px);*/
+    margin-left: var(--spacing);
+    margin-bottom: 1rem;
+}
+.card-image{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    flex-shrink: 0;  /*rat important de khong co lai khi thay doi image */
+}
+.card-top{
+    padding:1.5rem;
+}
+.card-title{
+    font-size : 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;  /*de cach phai duoi ra 1 it, khi thay doi width hay column thi co kha nang se ep sat xuong duoi*/
+}
+.card-user{
+    display: flex;
+    align-items: center;
+}
+.card-user-avatar{
+    height: 2.5rem;
+    width : 2.5rem;
+    border-radius: 100rem;  /*tao vong tron  = 50%*/
+    object-fit: cover;
+    flex-shrink: 0;   /*de khong bi co lai khi thay doi width cua parent, va khong bi co lai khi su dung flexbox. nhu vay se définir phan tu ke ben trong cung cap*/
+}
+.card-user-info{
+    padding-left: 1.5rem;  /*cach avatar ra khoang 25px*/
+    flex : 1;  /*toan bo khoang trang con lai cua parent se bi thau tom boi card nay. cho nen Avatar phai dung flex-shrink = 0 mac du da définir W va H nhung van se bi thay doi*/
+}
+.card-user-top{
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
+    margin-bottom: 2px; /*de cach phai duoi ra 1 it, khi thay doi width hay column thi co kha nang se ep sat xuong duoi, khong quan trong !!!*/
+
+}
+.card-user-top ion-icon{     /*https://ionic.io/ionicons  */
+    color: green;
+    /*background-color: green;*/
+    margin-left: 0.4rem;
+}
+
+.card-user-name{
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+.card-user-game{
+    font-weight: 300;
+    color : #999;
+    font-size: 1.1rem;
+}
+.card-bottom{
+    padding : 1.5rem;  /* giong nhu card-top cho deu */
+    border-top: rgb(240, 237, 237) 2px solid;
+    display: flex;
+    justify-content: space-between;  /* de chia doi ra, rat dep va important */
+    align-items: center;   /*canh giua theo truc y, rat important nhu card-user-top */
+}
+.card-live{
+    color: white;
+    background-color: rgb(230, 23, 23);
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.8rem;
+    /*width : 60px;
+    justify-content: space-around;*/
+}
+.card-live span {
+    margin-left: 0.8rem;   /*cach ra nhu cach nay hay hon la su dung width va justify-content trong tag parent nhu tren */
+}
+.card-watching{
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: rgb(126, 125, 125);
+}
+
+/*Bay gio neu nhu Titre cua 1 card dai hon cac card khac, se gay ra height cao hon, se bi lech height 
+ 1/ Set image khong thay doi size (height) khi thay doi image => flex-shrink = 0
+ 2/ De lay khoang trang phia duoi , co 2 cach :
+    a. lay chieu cao cua image (ex:400px nhu set ben tren) va dung height : calc (100% - 400px) ben trong card-content
+    b. Set flex = 1  trong card-content thi no se lay het phan trong phia duoi. Trong truong hop nay thi phai set display : flex ; flex-direction : column ; cho card parent cua no
+
+Bay gio thi van de la phan footer van bi khac nhau ve Height. De khac phuc thi don gian :
+    1/ card parent : dung display flex, column . 
+    2/ Vao card con footer , dung margin-top la auto thi se day het phan trong len tren, no van giu size nhu truoc. Margin-left : auto la day sang trai, right la sang phai, ko co auto thi o giua
+*/
+.card-content{
+    flex : 1 ;
+    display : flex;
+    flex-direction: column;
+}
+.card-bottom{
+    margin-top: auto;
+    flex-shrink: 0;
+}
+.card{
+    display : flex;
+    flex-direction: column;
+}
+
+.card-top{
+    display: flex;
+    flex-direction: column;
+    flex : 1; /* de lay het phan trong phai duoi, dong thoi set shrink = 0 cho card-bottom de no ko doi. Bay gio set flex=1 cho card title de no lay het phan trong phia duoi*/
+}
+.card-title{
+    flex : 1;
+    word-break: break-all;  /* neu nguoi dung danh chu lien tuc HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh thi se pha stucture cua minh, commande nay se giup hien thi tat ca
+                            va them text-truncate de hien thi 3 ligne thoi, cai nay dc nguoi nay dinh san, ko co disponible o day
+                            display : -webkit-box;
+                            -webkit-line-clamp : 3;
+                            -webkit-box-orient : vertical;
+                            overflow : hidden;
+                            text-overflow : ellipsis;
+                            word-break : break-word;  */
+                 
+}
+
+@media screen and (max-width:767px) {
+    .cards{
+    --spacing : 5px;
+    --column : 1;
+    }
+}
+
+
+@media screen and (min-width: 767px) and (max-width:1023px) {
+    .cards{
+    --spacing : 15px;
+    --column : 2;
+    }
+}

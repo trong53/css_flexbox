@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Flex</title>
+</head>
+<style>
+
+.cards{
+    display: flex;
+    --spacing : 20px;
+    --columm : 3;
+    --height : 20rem;
+    margin-left: calc(-1 * var(--spacing));
+    flex-wrap: wrap;
+}
+
+.column{
+    width : calc(100% / var(--columm) - var(--spacing));
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--spacing);
+}
+.card1{
+    height : var(--height);
+    margin-bottom: 0.2rem;
+}
+.card2{
+    height : calc(1.3 * var(--height));
+    margin-bottom: 0.2rem;
+}
+.card3{
+    height : calc(1.6 * var(--height));
+    margin-bottom: 0.2rem;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+   
+@media screen and (min-width : 767px) and (max-width : 1067px) {
+    .cards{
+    --spacing : 15px;
+    --columm : 2;
+    }  
+}
+
+@media screen and (max-width : 767px) {
+    .cards{
+    --spacing : 20px;
+    --columm : 1;
+    }  
+}
+
+</style>
+<!--Créer une galerie avec les images intercalées :  Flexbox sera plus facile à faire que Grid-->
+
+<body>
+<div class="cards">
+        <div class="column">
+            <div class="card1"> <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80" alt="" class="image"> </div>
+            <div class="card1"> <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=975&q=80" alt="" class="image"> </div>
+            <div class="card1"> <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=974&q=80" alt="" class="image"> </div>
+        </div>
+
+        <div class="column">
+            <div class="card2"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="" class="image"></div>
+            <div class="card2"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="image"></div>
+            <div class="card2"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"" class="image"></div>
+        </div>
+
+        <div class="column">
+            <div class="card3"><img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="image"></div>
+            <div class="card3"><img src="https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="image"></div>
+            <div class="card3"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" alt="" class="image"></div>
+        </div>
+
+</div>
+    
+</body>
+</html>

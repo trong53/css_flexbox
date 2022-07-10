@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid : autofill auto fit pour Responsive</title>
+</head>
+<style>
+    html{
+        font-size: 16px;  /*gia tri mac dinh cua html, nen ko can commande nay */
+    }
+    .card-image{
+        width : 100%;
+        height : 20rem;
+        border-radius: 1rem;  /*1 rem = 10 font-size cua html */
+        object-fit: cover;
+        box-shadow: rgb(187, 185, 185) 0px 10px 30px 0px;  /* tao bong shadow cho image */
+    }
+    .cards{
+        display: grid;
+        /*grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));*/
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap : 2rem;
+
+    }
+    /*lam scroll snap cho images tren tel va tablette */
+    @media screen and (max-width : 1023px){
+        .cards{
+            grid-template-columns: unset;  /*ko su dung nua, bgio coi nhu la 1 column, image 100%w se chiem het ligne */
+            grid-auto-flow: column;
+            grid-auto-columns: 80%;  /*bgio thanh scroll se nam duoi cung, va tao khoang trong cho texte phia duoi, ko dep */
+            overflow-x: auto; /* tao thanh scroll ngay phai duoi */
+            scroll-snap-type: x mandatory;  /*scroll snap theo truc x */
+            scroll-snap-stop: always;
+            padding: 20px;  /*neu ko co thi phan shadow cua image se bi cat */
+            scroll-padding: 20px;  /*khi scroll thi image se ko sat le, ma no se cach le 20px, 
+                                    danh cho scroll-snap-align la start hoac end,
+                                    neu la center thi ko can */
+            margin-left: -20px;  /*de no align ben trai, ko bi thut vao */
+        }
+        .card-image{
+            scroll-snap-align: start;
+            
+        }
+
+        .cards {        /* doan snippet nay cua Evondev - /scroll-hidden/ la de hidden thanh scroll bar */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        }
+        .cards::-webkit-scrollbar {
+         display: none;  /* doan snippet nay cua Evondev - /scroll-hidden/ la de hidden thanh scroll bar */
+        }
+
+    }
+        
+  
+</style>
+<body>
+    <div class="cards">
+        <img src="https://images.unsplash.com/photo-1572099606223-6e29045d7de3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="card-image">
+        <img src="https://images.unsplash.com/photo-1565118531796-763e5082d113?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="card-image">
+        <img src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=959&q=80" alt="" class="card-image">
+        <img src="https://images.unsplash.com/photo-1565118531796-763e5082d113?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="card-image">
+        <img src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=959&q=80" alt="" class="card-image">
+        <img src="https://images.unsplash.com/photo-1565118531796-763e5082d113?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="card-image">
+        <img src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=959&q=80" alt="" class="card-image">
+
+    </div>
+</body>
+</html>
