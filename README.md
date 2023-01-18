@@ -1,4 +1,4 @@
-Mon travail personnel pour l'objectif de maîtriser l'utilisation des techniques Dropbox and Grid dans CSS/HTML
+Mon travail personnel dans l'objectif de maîtriser l'utilisation des techniques : Flexbox et Grid, dans CSS/HTML
 
 <!---
 trong53/trong53 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
